@@ -1,10 +1,10 @@
-import { Button } from '../button/button'
+import { Button } from '../Button/Button'
 import s from './header.module.scss'
 
 export const Header = () => {
   return (
     <div className={s.header}>
-      <Button className={s.button}>Menu</Button>
+      <Button variant="secondary">Menu</Button>
     </div>
   )
 }
