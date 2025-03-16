@@ -19,11 +19,11 @@ export const WorkInProgressPage = () => {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a> */}
         <video autoPlay muted loop>
-          <source src={workInProgress} type="video/webm" />
+          <source src={workInProgress} type='video/webm' />
         </video>
       </div>
       <h1>Work is in progress...</h1>
-      <div className="card">
+      <div className='card'>
         <Button onClick={incrementCount}>try to click, buddy {count}</Button>
       </div>
     </>
