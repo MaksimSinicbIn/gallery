@@ -82,21 +82,8 @@
   }
 }
 
-.text {
-  padding: 6px 24px;
-  color: var(--color-accent-500);
-
-  &:active {
-    color: var(--color-accent-700);
-  }
-
-  &:hover {
-    color: var(--color-accent-100);
-  }
-
-  &:disabled {
-    color: var(--color-accent-900);
-  }
+.icon {
+  padding: 10px;
 }
 
 .fullWidth {

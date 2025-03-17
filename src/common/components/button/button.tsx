@@ -2,7 +2,7 @@ import { ComponentPropsWithoutRef, ElementType } from 'react'
 import s from './button.module.scss'
 import clsx from 'clsx'
 
-type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'text'
+type ButtonVariant = 'primary' | 'secondary' | 'outlined' | 'icon'
 
 type Props<T extends ElementType = 'button'> = {
   as?: T
