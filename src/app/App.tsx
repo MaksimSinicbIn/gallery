@@ -6,7 +6,7 @@ type Props = {
   demo: boolean
 }
 
-export const App = ({ demo = true }: Props) => {
+export const App = ({ demo = false }: Props) => {
   return (
     <>
       <Header />
