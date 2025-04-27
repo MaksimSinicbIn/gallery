@@ -10,7 +10,11 @@ export const baseAPi = createApi({
       query: () => 'breeds/image/random',
       transformResponse: (response: { message: string }) => response.message,
     }),
+    getMultipleDogImages: builder.query<string[], number>({
+      query: (count) => `breeds/image/random/${count}`,
+      transformResponse: (response: { message: string[] }) => response.message,
+    }),
   }),
 })
 
-export const { useGetRandomDogImageQuery } = baseAPi
+export const { useGetRandomDogImageQuery, useGetMultipleDogImagesQuery } = baseAPi
