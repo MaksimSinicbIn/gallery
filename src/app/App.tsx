@@ -1,16 +1,16 @@
 import { Header } from '@/common/components/Header/Header'
-import { StartPage } from '@/common/components/StartPage/StartPage'
-import { Decks } from '@/features/decks/Decks'
+import { BreedsPage } from '@/features/BreedsPage/BreedsPage'
+import { Decks } from '@/features/Decks/Decks'
 
 type Props = {
   demo: boolean
 }
 
-export const App = ({ demo = false }: Props) => {
+export const App = ({ demo = true }: Props) => {
   return (
     <>
       <Header />
-      <div className='container'>{demo ? <StartPage /> : <Decks />}</div>
+      <div className='container'>{demo ? <BreedsPage /> : <Decks />}</div>
     </>
   )
 }

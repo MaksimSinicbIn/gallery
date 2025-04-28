@@ -14,7 +14,12 @@ export const baseAPi = createApi({
       query: (count) => `breeds/image/random/${count}`,
       transformResponse: (response: { message: string[] }) => response.message,
     }),
+    getBreedsList: builder.query<string[], void>({
+      query: () => `breeds/list/all`,
+      transformResponse: (response: { message: Record<string, string[]> }) =>
+        Object.keys(response.message).map((breed) => breed[0].toUpperCase() + breed.slice(1)),
+    }),
   }),
 })
 
-export const { useGetRandomDogImageQuery, useGetMultipleDogImagesQuery } = baseAPi
+export const { useGetRandomDogImageQuery, useGetMultipleDogImagesQuery, useGetBreedsListQuery } = baseAPi
