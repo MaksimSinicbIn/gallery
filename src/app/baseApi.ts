@@ -1,3 +1,4 @@
+import { BREED_NAME_CORRECTIONS, BreedKey } from '@/common/constants'
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const baseAPi = createApi({
@@ -17,7 +18,9 @@ export const baseAPi = createApi({
     getBreedsList: builder.query<string[], void>({
       query: () => `breeds/list/all`,
       transformResponse: (response: { message: Record<string, string[]> }) =>
-        Object.keys(response.message).map((breed) => breed[0].toUpperCase() + breed.slice(1)),
+        Object.keys(response.message).map(
+          (breed) => BREED_NAME_CORRECTIONS[breed as BreedKey] || breed.charAt(0).toUpperCase() + breed.slice(1)
+        ),
     }),
   }),
 })
