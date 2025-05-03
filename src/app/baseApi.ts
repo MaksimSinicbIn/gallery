@@ -24,7 +24,16 @@ export const baseAPi = createApi({
           (breed) => BREED_NAME_CORRECTIONS[breed as BreedKey] || breed.charAt(0).toUpperCase() + breed.slice(1)
         ),
     }),
+    getImagesByBreed: builder.query<string[], string>({
+      query: (breed) => `breed/${breed}/images`,
+      transformResponse: (response: { message: string[] }) => response.message.slice(0, 10),
+    }),
   }),
 })
 
-export const { useGetRandomDogImageQuery, useGetMultipleDogImagesQuery, useGetBreedsListQuery } = baseAPi
+export const {
+  useGetRandomDogImageQuery,
+  useGetMultipleDogImagesQuery,
+  useGetBreedsListQuery,
+  useGetImagesByBreedQuery,
+} = baseAPi
