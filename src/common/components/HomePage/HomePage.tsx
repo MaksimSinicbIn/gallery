@@ -1,14 +1,14 @@
 import { Button } from '@/common/components/Button/Button'
 import workInProgress from '@/assets/images/workInProgress.webm'
-import s from './StartPage.module.scss'
+import s from './HomePage.module.scss'
 
-export const StartPage = () => {
+export const HomePage = () => {
   return (
     <div className={s.info}>
       <video autoPlay muted loop>
         <source src={workInProgress} type='video/webm' />
       </video>
-      Welcome to Gallery! Here you can upload your images for yourself and your friends!
+      Welcome to Dogs Gallery! Here you can see images of the dog breeds you're interested in!
       <div className={s.buttonSpace}>
         <Button variant='primary' title='Sing In'>
           Sing In

@@ -1,7 +1,8 @@
 import { useGetImagesByBreedQuery } from '@/app/baseApi'
-import { DeckItem } from '../Decks/DecksList/DeckItem/DeckItem'
 import s from './BreedImageGallery.module.scss'
 import { Button } from '@/common/components/Button/Button'
+import { BreedImageCard } from './BreedImageCard/BreedImageCard'
+
 type Props = {
   selectedBreed: string | null
   onBack: () => void
@@ -22,7 +23,7 @@ export const BreedImageGallery = ({ selectedBreed, onBack }: Props) => {
       <div style={{ margin: `10px 10px` }}>
         <Button onClick={() => onBack()}>← Назад к списку</Button>
       </div>
-      <div className={s.card}>{images?.map((imageUrl) => <DeckItem key={imageUrl} imageUrl={imageUrl} />)}</div>
+      <div className={s.card}>{images?.map((imageUrl) => <BreedImageCard key={imageUrl} imageUrl={imageUrl} />)}</div>
     </div>
   )
 }
