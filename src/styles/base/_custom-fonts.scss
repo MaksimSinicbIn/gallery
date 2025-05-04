@@ -6,8 +6,8 @@
   font-stretch: normal;
   src:
     local('Inter'),
-    url('../../assets/fonts/Inter-Regular.woff2') format('woff2'),
-    url('../../assets/fonts/Inter-Regular.woff') format('woff');
+    url('@/assets/fonts/Inter-Regular.woff2') format('woff2'),
+    url('@/assets/fonts/Inter-Regular.woff') format('woff');
 }
 
 @font-face {
@@ -18,6 +18,6 @@
   font-stretch: normal;
   src:
     local('Inter'),
-    url('../../assets/fonts/Inter-SemiBold.woff2') format('woff2'),
-    url('../../assets/fonts/Inter-SemiBold.woff') format('woff');
+    url('@/assets/fonts/Inter-SemiBold.woff2') format('woff2'),
+    url('@/assets/fonts/Inter-SemiBold.woff') format('woff');
 }
