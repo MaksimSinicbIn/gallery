@@ -1,10 +1,8 @@
 import { GroupedBreeds, useGetBreedsListQuery } from '@/app/baseApi'
+import { Link } from 'react-router'
 import s from './BreedsList.module.scss'
-import { useState } from 'react'
-import { BreedImageGallery } from './BreedImageGallery/BreedImageGallery'
 
 export const BreedsList = () => {
-  const [selectedBreed, setSelectedBreed] = useState<string | null>(null)
   const { data: breeds, isLoading, error } = useGetBreedsListQuery()
 
   if (isLoading) return <div>Загрузка...</div>
@@ -29,22 +27,18 @@ export const BreedsList = () => {
 
   return (
     <div className={s.list}>
-      {selectedBreed ? (
-        <BreedImageGallery selectedBreed={selectedBreed} onBack={() => setSelectedBreed(null)} />
-      ) : (
-        Object.entries(groupedBreeds).map(([letter, breeds]) => (
-          <div className={s.group} key={letter}>
-            <h2>{letter}</h2>
-            <ul>
-              {breeds.map((breed) => (
-                <li key={breed} onClick={() => setSelectedBreed(normalizeBreedName(breed))}>
-                  {breed}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))
-      )}
+      {Object.entries(groupedBreeds).map(([letter, breeds]) => (
+        <div className={s.group} key={letter}>
+          <h2>{letter}</h2>
+          <ul>
+            {breeds.map((breed) => (
+              <li key={breed}>
+                <Link to={`/breeds/${normalizeBreedName(breed)}`}>{breed}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   )
 }
