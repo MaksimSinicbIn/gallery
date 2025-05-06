@@ -1,11 +1,11 @@
-import { Button } from '@/common/components/Button/Button'
-import s from './BreedImageCard.module.scss'
+import s from './ImageCard.module.scss'
+import { Button } from '../Button/Button'
 
 type Props = {
   imageUrl: string
 }
 
-export const BreedImageCard = ({ imageUrl }: Props) => {
+export const ImageCard = ({ imageUrl }: Props) => {
   return (
     <div className={s.card}>
       <img className={s.img} src={imageUrl} alt='Random dog' />
