@@ -1,9 +1,13 @@
+@use '../../styles/index.scss' as *;
+
 .list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   justify-items: center;
   gap: 12px;
+  background-color: var(--color-block-1);
+  border-radius: 15px;
 }
 
 .group {
