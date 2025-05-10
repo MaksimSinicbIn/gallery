@@ -1,6 +1,6 @@
 import { useGetImagesByBreedQuery } from '@/app/baseApi'
 import { useParams } from 'react-router'
-import { BreedImageCard } from './BreedImageCard/BreedImageCard'
+import { ImageCard } from '@/common/components/ImageCard/ImageCard'
 import s from './BreedImageGallery.module.scss'
 
 export const BreedImageGallery = () => {
@@ -14,7 +14,7 @@ export const BreedImageGallery = () => {
 
   return (
     <div>
-      <div className={s.card}>{images?.map((imageUrl) => <BreedImageCard key={imageUrl} imageUrl={imageUrl} />)}</div>
+      <div className={s.card}>{images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}</div>
     </div>
   )
 }
