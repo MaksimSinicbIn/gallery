@@ -2,15 +2,17 @@
 
 .header {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  position: sticky;
   top: 0;
-  z-index: 100;
-  padding: 20px 10px;
-  height: 60px;
-  width: 100%;
-  background-color: var(--color-block-1);
-  margin-bottom: 1.5em;
-  max-width: 100%;
+  right: 0;
+  height: 64px;
+  z-index: 1000;
+  position: fixed;
+  border-top: 0;
+  border: 1px solid transparent;
+  border-bottom-left-radius: 0.5rem;
+
+  &:hover {
+    background-color: var(--color-block-1);
+  }
 }
