@@ -1,11 +1,11 @@
 @use '../base/colors' as *;
 
 [data-theme='light'] {
-  --background: var(--color-light-400);
-  --color-text: var(--color-dark-900);
+  --background: var(--color-light-700);
+  --color-text: var(--color-dark-700);
   --color-block-1: var(--color-light-300);
   --color-block-2: var(--color-light-200);
-  --color-accent: var(--color-accent-500);
+  --color-accent: var(--color-accent-700);
 }
 
 [data-theme='dark'] {
@@ -13,5 +13,5 @@
   --color-text: var(--color-light-100);
   --color-block-1: var(--color-dark-300);
   --color-block-2: var(--color-dark-100);
-  --color-accent: var(--color-accent-500);
+  --color-accent: var(--color-accent-100);
 }

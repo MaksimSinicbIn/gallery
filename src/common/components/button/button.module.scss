@@ -12,7 +12,7 @@
   line-height: $line-height-m;
   text-align: center;
 
-  border-radius: 2px;
+  border-radius: 5px;
 
   transition:
     $transition-duration background-color ease-in-out,
@@ -72,8 +72,8 @@
   }
 
   &:hover {
-    color: var(--color-accent-100);
-    border-color: var(--color-accent-100);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
   }
 
   &:disabled {
@@ -84,6 +84,10 @@
 
 .icon {
   padding: 10px;
+
+  &:hover {
+    color: var(--color-dark-100);
+  }
 }
 
 .fullWidth {
