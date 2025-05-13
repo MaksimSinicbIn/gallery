@@ -21,7 +21,7 @@ export const BreedsList = () => {
     return breed
       .split('')
       .map((el) => el.toLowerCase())
-      .filter((el) => el !== ' ')
+      .filter((el) => el !== ' ' && el !== '.')
       .join('')
   }
 
