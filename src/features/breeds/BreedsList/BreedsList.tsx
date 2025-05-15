@@ -1,5 +1,7 @@
 import { GroupedBreeds, useGetBreedsListQuery } from '@/app/baseApi'
 import { Link } from 'react-router'
+import { SubBreedList } from '../SubBreedList/SubBreedList'
+import { normalizeBreedName } from '@/common/utils'
 import s from './BreedsList.module.scss'
 
 export const BreedsList = () => {
@@ -9,21 +11,13 @@ export const BreedsList = () => {
   if (error) return <div>Ошибка загрузки пород</div>
 
   const groupedBreeds = (breeds || []).reduce<GroupedBreeds>((groups, breed) => {
-    const firstLetter = breed[0]
+    const firstLetter = breed.name[0]
     if (!groups[firstLetter]) {
       groups[firstLetter] = []
     }
     groups[firstLetter].push(breed)
     return groups
   }, {})
-
-  const normalizeBreedName = (breed: string) => {
-    return breed
-      .split('')
-      .map((el) => el.toLowerCase())
-      .filter((el) => el !== ' ' && el !== '.')
-      .join('')
-  }
 
   return (
     <div className={s.list}>
@@ -32,8 +26,12 @@ export const BreedsList = () => {
           <h2>{letter}</h2>
           <ul>
             {breeds.map((breed) => (
-              <li key={breed}>
-                <Link to={`/breeds/${normalizeBreedName(breed)}`}>{breed}</Link>
+              <li key={breed.name}>
+                {breed.subBreeds.length === 0 ? (
+                  <Link to={`/breeds/${normalizeBreedName(breed.name)}`}>{breed.name}</Link>
+                ) : (
+                  <SubBreedList breed={breed} />
+                )}
               </li>
             ))}
           </ul>
