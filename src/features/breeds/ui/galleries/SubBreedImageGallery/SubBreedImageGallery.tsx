@@ -1,5 +1,5 @@
 import { useGetImagesBySubBreedQuery } from '@/app/baseApi'
-import { ImageCard } from '@/common/components/ImageCard/ImageCard'
+import { ImageCard } from '../components/ImageCard/ImageCard'
 import { useParams } from 'react-router'
 import s from './SubBreedImageGallery.module.scss'
 

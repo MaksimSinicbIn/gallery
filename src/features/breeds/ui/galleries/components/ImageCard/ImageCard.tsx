@@ -1,5 +1,5 @@
+import { Button } from '@/common/components/Button/Button'
 import s from './ImageCard.module.scss'
-import { Button } from '../Button/Button'
 
 type Props = {
   imageUrl: string

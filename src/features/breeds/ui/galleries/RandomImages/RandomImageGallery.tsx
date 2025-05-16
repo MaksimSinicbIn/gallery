@@ -1,5 +1,5 @@
 import { useGetMultipleDogImagesQuery } from '@/app/baseApi'
-import { ImageCard } from '@/common/components/ImageCard/ImageCard'
+import { ImageCard } from '../components/ImageCard/ImageCard'
 import s from './RandomImageGallery.module.scss'
 
 export const RandomImageGallery = () => {

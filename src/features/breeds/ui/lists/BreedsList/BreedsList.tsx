@@ -1,7 +1,7 @@
 import { GroupedBreeds, useGetBreedsListQuery } from '@/app/baseApi'
 import { Link } from 'react-router'
 import { SubBreedList } from '../SubBreedList/SubBreedList'
-import { normalizeBreedName } from '@/common/utils'
+import { normalizeBreedName } from '@/features/breeds/utils'
 import s from './BreedsList.module.scss'
 
 export const BreedsList = () => {

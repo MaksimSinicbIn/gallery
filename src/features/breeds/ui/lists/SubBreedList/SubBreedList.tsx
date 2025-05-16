@@ -1,7 +1,7 @@
 import { BreedItem } from '@/app/baseApi'
 import s from './SubBreedList.module.scss'
 import { Link } from 'react-router'
-import { normalizeBreedName } from '@/common/utils'
+import { normalizeBreedName } from '@/features/breeds/utils'
 
 type Props = {
   breed: BreedItem
