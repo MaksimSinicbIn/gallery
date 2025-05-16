@@ -1,7 +1,6 @@
 import { useGetImagesByBreedQuery } from '@/app/baseApi'
 import { useParams } from 'react-router'
-import { ImageCard } from '../components/ImageCard/ImageCard'
-import s from './BreedImageGallery.module.scss'
+import { Gallery } from '../components/Gallery/Gallery'
 
 export const BreedImageGallery = () => {
   const params = useParams()
@@ -12,9 +11,5 @@ export const BreedImageGallery = () => {
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>Error: {JSON.stringify(error)}</div>
 
-  return (
-    <div>
-      <div className={s.card}>{images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}</div>
-    </div>
-  )
+  return <Gallery images={images} />
 }
