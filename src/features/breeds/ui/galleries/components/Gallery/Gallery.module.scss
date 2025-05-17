@@ -1,6 +1,16 @@
-.card {
+.my-masonry-grid {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
+  margin-left: -16px; /* Отрицательный отступ для компенсации padding у колонок */
+  width: auto;
+}
+
+/* Колонки */
+.my-masonry-grid_column {
+  padding-left: 16px; /* Горизонтальный отступ между элементами */
+  background-clip: padding-box;
+}
+
+/* Элементы внутри колонок */
+.masonry-item {
+  margin-bottom: 40px; /* Вертикальный отступ */
 }
