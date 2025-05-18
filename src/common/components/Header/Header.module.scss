@@ -1,18 +1,40 @@
 @use '../../../styles/index.scss' as *;
 
-.header {
+@mixin header-side($position) {
   display: flex;
   align-items: center;
   top: 0;
-  right: 0;
   height: 64px;
   z-index: 1000;
   position: fixed;
   border-top: 0;
   border: 1px solid transparent;
-  border-bottom-left-radius: 0.5rem;
+
+  ul {
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+  }
 
   &:hover {
     background-color: var(--color-block-1);
   }
+
+  // Переопределение позиции
+  @if $position == 'right' {
+    right: 0;
+    border-bottom-left-radius: 0.5rem;
+  } @else {
+    left: 0;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+// Применение
+.headerRight {
+  @include header-side('right');
+}
+
+.headerLeft {
+  @include header-side('left');
 }

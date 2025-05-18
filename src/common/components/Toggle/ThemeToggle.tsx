@@ -15,7 +15,11 @@ export const ThemeToggle = () => {
 
   return (
     <div className={s['toggle-container']}>
-      <Button variant='icon' onClick={changeThemeHandler}>
+      <Button
+        title={`Enable ${currentTheme === 'dark' ? 'light' : 'dark'} theme`}
+        variant='icon'
+        onClick={changeThemeHandler}
+      >
         {currentTheme === 'dark' ? <Moon /> : <Sun />}
       </Button>
     </div>
