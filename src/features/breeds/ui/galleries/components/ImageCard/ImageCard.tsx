@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { ImageFullView } from '../ImageFullView/ImageFullView'
 import s from './ImageCard.module.scss'
 
 type Props = {
@@ -5,9 +7,18 @@ type Props = {
 }
 
 export const ImageCard = ({ imageUrl }: Props) => {
+  const [isFullSize, setIsFullSize] = useState<boolean>(false)
+
+  const changeSizeHandler = () => {
+    setIsFullSize(true)
+  }
+
   return (
-    <div className={s.card}>
-      <img className={s['card-image']} src={imageUrl} alt='Dog image' />
-    </div>
+    <>
+      <div className={s.card} onClick={changeSizeHandler}>
+        <img className={s['card-image']} src={imageUrl} alt='Dog image' />
+      </div>
+      {isFullSize && <ImageFullView imageUrl={imageUrl} onClose={() => setIsFullSize(false)} />}
+    </>
   )
 }
