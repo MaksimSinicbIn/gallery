@@ -15,12 +15,14 @@ export const Gallery = ({ images }: Props) => {
   }
 
   return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className={s['my-masonry-grid']} // Класс для контейнера
-      columnClassName={s['my-masonry-grid_column']} // Класс для колонок
-    >
-      {images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}
-    </Masonry>
+    <section>
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className={s['my-masonry-grid']} // Класс для контейнера
+        columnClassName={s['my-masonry-grid_column']} // Класс для колонок
+      >
+        {images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}
+      </Masonry>
+    </section>
   )
 }

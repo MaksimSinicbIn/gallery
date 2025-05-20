@@ -1,11 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router'
-import { ErrorPage } from '@/common/components/ErrorPage/ErrorPage'
 import { Header } from '@/common/components/Header/Header'
+import { ErrorPage } from '@/common/components/ErrorPage/ErrorPage'
 import { HomePage } from '@/common/components/HomePage/HomePage'
-import { BreedImageGallery } from '@/features/breeds/BreedImageGallery/BreedImageGallery'
-import { BreedsList } from '@/features/breeds/BreedsList/BreedsList'
-import { RandomImageGallery } from '@/features/RandomImages/RandomImageGallery'
-import { SubBreedImageGallery } from '@/features/breeds/SubBreedImageGallery/SubBreedImageGallery'
+import { BreedsList } from '@/features/breeds/ui/lists/BreedsList/BreedsList'
+import { BreedImageGallery } from '@/features/breeds/ui/galleries/BreedImageGallery/BreedImageGallery'
+import { RandomImageGallery } from '@/features/breeds/ui/galleries/RandomImages/RandomImageGallery'
+import { SubBreedImageGallery } from '@/features/breeds/ui/galleries/SubBreedImageGallery/SubBreedImageGallery'
 
 export const PATH = {
   HOME: '/home',
@@ -20,7 +20,7 @@ export const App = () => {
   return (
     <>
       <Header />
-      <div className='container'>
+      <main className='container'>
         <Routes>
           <Route path={PATH.HOME} element={<HomePage />} />
           <Route path='/' element={<Navigate to={PATH.HOME} />} />
@@ -31,7 +31,7 @@ export const App = () => {
           <Route path={PATH.NOT_FOUND} element={<ErrorPage />} />
           <Route path='*' element={<Navigate to={PATH.NOT_FOUND} />} />
         </Routes>
-      </div>
+      </main>
     </>
   )
 }

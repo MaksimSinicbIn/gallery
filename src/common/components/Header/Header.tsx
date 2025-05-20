@@ -12,25 +12,29 @@ export const Header = () => {
 
   return (
     <header className={s['header-side']}>
-      <ul className={s.headerRight}>
-        <li>
-          <ThemeToggle />
-        </li>
-        <li>
-          <Button title='Home' variant='icon'>
-            <Home onClick={goHome} />
-          </Button>
-        </li>
-      </ul>
-      {location.pathname !== '/home' ? (
-        <ul className={s.headerLeft}>
+      <nav aria-label='Control'>
+        <ul className={s.headerRight}>
           <li>
-            <Button title='Previous page' variant='icon' onClick={goBack}>
-              <MoveLeft />
+            <ThemeToggle />
+          </li>
+          <li>
+            <Button aria-label='Home' title='Home' variant='icon'>
+              <Home onClick={goHome} />
             </Button>
           </li>
         </ul>
-      ) : null}
+      </nav>
+      {location.pathname !== '/home' && (
+        <nav aria-label='Back'>
+          <ul className={s.headerLeft}>
+            <li>
+              <Button aria-label='Back' title='Previous page' variant='icon' onClick={goBack}>
+                <MoveLeft />
+              </Button>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   )
 }

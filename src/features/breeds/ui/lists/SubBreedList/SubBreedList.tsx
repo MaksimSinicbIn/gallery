@@ -9,17 +9,21 @@ type Props = {
 
 export const SubBreedList = ({ breed }: Props) => {
   return (
-    <div className={s.dropdown}>
+    <section className={s.dropdown}>
       <details>
-        <summary>{breed.name}</summary>
+        <summary>
+          <h3>{breed.name}</h3>
+        </summary>
         <ul className={s.subBreedsList}>
           {breed.subBreeds.map((subBreed) => (
             <li key={subBreed}>
-              <Link to={`/breeds/${normalizeBreedName(breed.name)}/${normalizeBreedName(subBreed)}`}>{subBreed}</Link>
+              <h4>
+                <Link to={`/breeds/${normalizeBreedName(breed.name)}/${normalizeBreedName(subBreed)}`}>{subBreed}</Link>
+              </h4>
             </li>
           ))}
         </ul>
       </details>
-    </div>
+    </section>
   )
 }

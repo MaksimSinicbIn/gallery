@@ -7,7 +7,7 @@ type Props = {
 export const ImageCard = ({ imageUrl }: Props) => {
   return (
     <div className={s.card}>
-      <img className={s['card-image']} src={imageUrl} alt='Random dog' />
+      <img className={s['card-image']} src={imageUrl} alt='Dog image' />
     </div>
   )
 }

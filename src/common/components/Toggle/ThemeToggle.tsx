@@ -13,10 +13,13 @@ export const ThemeToggle = () => {
     dispatch(toggleTheme())
   }
 
+  const notCurrentThemeName = currentTheme === 'dark' ? 'light' : 'dark'
+
   return (
     <div className={s['toggle-container']}>
       <Button
-        title={`Enable ${currentTheme === 'dark' ? 'light' : 'dark'} theme`}
+        aria-label='Switch theme (light/dark)'
+        title={`Enable ${notCurrentThemeName} theme`}
         variant='icon'
         onClick={changeThemeHandler}
       >

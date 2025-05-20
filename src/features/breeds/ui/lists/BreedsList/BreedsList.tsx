@@ -20,7 +20,7 @@ export const BreedsList = () => {
   }, {})
 
   return (
-    <div className={s.list}>
+    <section className={s.list}>
       {Object.entries(groupedBreeds).map(([letter, breeds]) => (
         <div className={s.group} key={letter}>
           <h2>{letter}</h2>
@@ -28,7 +28,9 @@ export const BreedsList = () => {
             {breeds.map((breed) => (
               <li key={breed.name}>
                 {breed.subBreeds.length === 0 ? (
-                  <Link to={`/breeds/${normalizeBreedName(breed.name)}`}>{breed.name}</Link>
+                  <h3>
+                    <Link to={`/breeds/${normalizeBreedName(breed.name)}`}>{breed.name}</Link>
+                  </h3>
                 ) : (
                   <SubBreedList breed={breed} />
                 )}
@@ -37,6 +39,6 @@ export const BreedsList = () => {
           </ul>
         </div>
       ))}
-    </div>
+    </section>
   )
 }
