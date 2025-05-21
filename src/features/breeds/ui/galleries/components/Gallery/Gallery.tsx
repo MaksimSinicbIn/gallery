@@ -18,8 +18,8 @@ export const Gallery = ({ images }: Props) => {
     <section>
       <Masonry
         breakpointCols={breakpointColumnsObj}
-        className={s['my-masonry-grid']} // Класс для контейнера
-        columnClassName={s['my-masonry-grid_column']} // Класс для колонок
+        className={s.myMasonryGrid}
+        columnClassName={s.myMasonryGridColumn}
       >
         {images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}
       </Masonry>

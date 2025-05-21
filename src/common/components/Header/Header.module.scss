@@ -1,6 +1,6 @@
 @use '../../../styles/index.scss' as *;
 
-@mixin header-side($position) {
+@mixin headerSide($position) {
   display: flex;
   align-items: center;
   top: 0;
@@ -33,9 +33,9 @@
 
 // Применение
 .headerRight {
-  @include header-side('right');
+  @include headerSide('right');
 }
 
 .headerLeft {
-  @include header-side('left');
+  @include headerSide('left');
 }

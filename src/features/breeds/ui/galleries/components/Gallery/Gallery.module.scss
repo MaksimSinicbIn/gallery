@@ -1,16 +1,16 @@
-.my-masonry-grid {
+.myMasonryGrid {
   display: flex;
-  margin-left: -16px; /* Отрицательный отступ для компенсации padding у колонок */
+  margin-left: -16px;
   width: auto;
 }
 
 /* Колонки */
-.my-masonry-grid_column {
-  padding-left: 16px; /* Горизонтальный отступ между элементами */
+.myMasonryGridColumn {
+  padding-left: 16px;
   background-clip: padding-box;
 }
 
 /* Элементы внутри колонок */
-.masonry-item {
-  margin-bottom: 40px; /* Вертикальный отступ */
+.masonryItem {
+  margin-bottom: 40px;
 }

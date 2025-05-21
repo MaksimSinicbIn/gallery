@@ -11,7 +11,7 @@ export const Header = () => {
   const location = useLocation()
 
   return (
-    <header className={s['header-side']}>
+    <header className={s.headerSide}>
       <nav aria-label='Control'>
         <ul className={s.headerRight}>
           <li>

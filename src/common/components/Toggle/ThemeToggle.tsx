@@ -16,7 +16,7 @@ export const ThemeToggle = () => {
   const notCurrentThemeName = currentTheme === 'dark' ? 'light' : 'dark'
 
   return (
-    <div className={s['toggle-container']}>
+    <div className={s.toggleContainer}>
       <Button
         aria-label='Switch theme (light/dark)'
         title={`Enable ${notCurrentThemeName} theme`}
