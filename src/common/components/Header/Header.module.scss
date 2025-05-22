@@ -9,6 +9,8 @@
   position: fixed;
   border-top: 0;
   border: 1px solid transparent;
+  background: transparent;
+  transition: all $transition-duration;
 
   ul {
     display: flex;
@@ -21,7 +23,6 @@
     border-color: var(--color-header-border);
   }
 
-  // Переопределение позиции
   @if $position == 'right' {
     right: 0;
     border-bottom-left-radius: 0.5rem;
@@ -31,11 +32,15 @@
   }
 }
 
-// Применение
 .headerRight {
   @include headerSide('right');
 }
 
 .headerLeft {
   @include headerSide('left');
+}
+
+.headerScrolled {
+  background-color: var(--color-header);
+  border-color: var(--color-header-border);
 }
