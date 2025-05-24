@@ -12,6 +12,11 @@
   align-items: center;
   z-index: 1000;
   animation: fadeIn $transition-duration;
+  cursor: pointer;
+
+  &:has(.fullSizeImage:hover) {
+    cursor: default;
+  }
 }
 
 @keyframes fadeIn {
@@ -27,4 +32,16 @@
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
+}
+
+.overlayButton {
+  position: absolute;
+  top: 44px;
+  right: 1px;
+  color: var(--color-dark-100);
+  z-index: 1001;
+
+  .fullViewOverlay:not(:has(.fullSizeImage:hover)):hover & {
+    color: var(--color-light-100);
+  }
 }

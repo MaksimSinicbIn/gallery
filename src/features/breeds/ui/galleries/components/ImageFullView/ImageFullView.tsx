@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import s from './ImageFullView.module.scss'
+import { Button } from '@/common/components/Button/Button'
+import { X } from 'lucide-react'
 
 type Props = {
   imageUrl: string
@@ -23,6 +25,9 @@ export const ImageFullView = ({ imageUrl, onClose }: Props) => {
 
   return (
     <div className={s.fullViewOverlay} onClick={onClose}>
+      <Button className={s.overlayButton} variant='icon'>
+        <X />
+      </Button>
       <img className={s.fullSizeImage} src={imageUrl} alt='Full size image' onClick={(e) => e.stopPropagation()} />
     </div>
   )
