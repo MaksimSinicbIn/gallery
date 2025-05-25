@@ -3,6 +3,7 @@
 [data-theme='light'] {
   --background: var(--color-light-400);
   --color-text: var(--color-dark-700);
+  --color-title: var(--color-dark-300);
   --color-header: var(--color-light-300);
   --color-header-border: var(--color-light-400);
   --color-block-1: var(--color-light-300);
@@ -13,6 +14,7 @@
 [data-theme='dark'] {
   --background: var(--color-dark-500);
   --color-text: var(--color-light-100);
+  --color-title: var(--color-light-700);
   --color-header: var(--color-dark-550);
   --color-header-border: var(--color-dark-550);
   --color-block-1: var(--color-dark-300);

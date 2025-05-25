@@ -9,7 +9,7 @@ type Props = {
 
 export const SubBreedList = ({ breed }: Props) => {
   return (
-    <section className={s.dropdown}>
+    <section>
       <details>
         <summary>
           <h3>{breed.name}</h3>

@@ -1,26 +1,22 @@
-.dropdown {
-  position: relative;
-  display: inline-block;
+@use '../../../../../styles/index.scss' as *;
 
-  &:focus-within .dropdownMenu {
-    opacity: 1;
-    visibility: visible;
+details {
+  position: relative;
+
+  summary {
+    list-style: none;
+    cursor: pointer;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
 }
 
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  padding: 0;
-  margin: 5px 0 0 0;
-  min-width: 150px;
+.subBreedsList {
+  display: flex; // Flex здесь!
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 0 0 16px;
+  margin: 0;
 }
