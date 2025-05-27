@@ -63,12 +63,13 @@
 
 .outlined {
   padding: 6px 24px;
-  color: var(--color-accent-500);
-  border: 1px solid var(--color-accent-500);
+  color: var(--color-light-100);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--color-accent);
 
   &:active {
     color: var(--color-accent-700);
-    border-color: var(--color-accent-700);
+    border-color: var(--color-accent);
   }
 
   &:hover {
