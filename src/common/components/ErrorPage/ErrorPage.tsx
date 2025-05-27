@@ -1,19 +1,26 @@
 import wrongDoor from '@/assets/images/wrongDoor.webp'
+import s from './ErrorPage.module.scss'
+import { useAppNavigate } from '@/common/hooks'
+import { Button } from '../Button/Button'
 
 export const ErrorPage = () => {
+  const { goHome } = useAppNavigate()
+
   return (
-    <div aria-labelledby='error-title error-description' className='error-page'>
-      <div style={{ marginTop: '10%', textAlign: 'center' }}>
-        <h2 id='section-error'>Oops!</h2>
-        <p id='section-error'>You got the wrong door, buddy!</p>
-        <img style={{ paddingTop: '2%' }} src={wrongDoor} alt='drujok_pirojok' />
-        <p style={{ paddingTop: '2%', fontSize: '18px' }}>
-          Try click{' '}
-          <a href={'http://localhost:5173'} target={'_blank'}>
-            <span style={{ color: 'violet' }}>here!</span>
-          </a>
+    <div aria-labelledby='error-title error-description' className={s.errorPageContainer}>
+      <div className={s.textBlock}>
+        <h2 id='section-error' className={s.errorPageTitle}>
+          Oops!
+        </h2>
+        <p id='section-error' className={s.errorPageText}>
+          You got the wrong door, buddy!
         </p>
       </div>
+
+      <img className={s.errorPageImage} src={wrongDoor} alt='drujok_pirojok' />
+      <Button variant='primary' onClick={goHome}>
+        Return to Home Page
+      </Button>
     </div>
   )
 }
