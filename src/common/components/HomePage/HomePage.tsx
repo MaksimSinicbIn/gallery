@@ -1,7 +1,7 @@
 import { Button } from '@/common/components/Button/Button'
 import s from './HomePage.module.scss'
 import { Link } from 'react-router'
-import { PATH } from '@/app/App'
+import { PATH } from '@/common/routes/AppRouter'
 
 export const HomePage = () => {
   return (
