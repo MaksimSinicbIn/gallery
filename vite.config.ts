@@ -11,12 +11,17 @@ export default defineConfig({
       workbox: {
         runtimeCaching: [
           {
-            urlPattern: /https:\/\/images\.dog\.ceo\/.*\.(jpg|jpeg|png|webp)/,
+            urlPattern: /https:\/\/dog\.ceo\/api\/.*/,
+            handler: 'NetworkFirst',
+            options: { cacheName: 'dog-api-cache' },
+          },
+          {
+            urlPattern: /https:\/\/images\.dog\.ceo\/breeds\/[a-z-]+\/[a-z0-9_]+\.(jpg|jpeg|png|webp)/i,
             handler: 'CacheFirst',
             options: {
               cacheName: 'dog-images-cache',
               expiration: {
-                maxEntries: 100,
+                maxEntries: 500,
                 maxAgeSeconds: 30 * 24 * 60 * 60,
               },
             },
