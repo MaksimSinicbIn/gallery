@@ -1,6 +1,7 @@
 import { useGetImagesBySubBreedQuery } from '@/app/baseApi'
 import { useParams } from 'react-router'
 import { Gallery } from '../components/Gallery/Gallery'
+import { useCacheDogImages } from '@/common/hooks'
 
 export const SubBreedImageGallery = () => {
   const params = useParams()
@@ -11,6 +12,8 @@ export const SubBreedImageGallery = () => {
     isLoading,
     error,
   } = useGetImagesBySubBreedQuery({ breedName: breed!, subBreedName: subBreed! }, { skip: !breed || !subBreed })
+
+  useCacheDogImages(images)
 
   if (!breed) return <div>No breed selected</div>
   if (isLoading) return <div>Loading...</div>
