@@ -4,7 +4,8 @@ import { SubBreedImageGallery } from '@/features/breeds/ui/galleries/SubBreedIma
 import { BreedsList } from '@/features/breeds/ui/lists/BreedsList/BreedsList'
 import { ErrorPage } from '../components/ErrorPage/ErrorPage'
 import { HomePage } from '../components/HomePage/HomePage'
-import { Routes, Route, Navigate } from 'react-router'
+import { Header } from '../components/Header/Header'
+import { Routes, Route, Navigate, useLocation } from 'react-router'
 import clsx from 'clsx'
 
 export const PATH = {
@@ -16,30 +17,33 @@ export const PATH = {
   NOT_FOUND: '/404',
 } as const
 
-type Props = {
-  isHomePage: boolean
-}
+export const AppRouter = () => {
+  const location = useLocation()
 
-export const AppRouter = ({ isHomePage }: Props) => {
+  const isHomePage = location.pathname === PATH.HOME
+
   return (
-    <Routes>
-      <Route path={PATH.HOME} element={<HomePage />} />
-      <Route path='/' element={<Navigate to={PATH.HOME} />} />
-      <Route
-        path='*'
-        element={
-          <div className={clsx('container', isHomePage ? 'fullScreen' : 'withHeader')}>
-            <Routes>
-              <Route path={PATH.RANDOM} element={<RandomImageGallery />} />
-              <Route path={PATH.BREEDS} element={<BreedsList />} />
-              <Route path={PATH.BREED_DETAILS} element={<BreedImageGallery />} />
-              <Route path={PATH.SUB_BREED} element={<SubBreedImageGallery />} />
-              <Route path={PATH.NOT_FOUND} element={<ErrorPage />} />
-              <Route path='*' element={<Navigate to={PATH.NOT_FOUND} />} />
-            </Routes>
-          </div>
-        }
-      />
-    </Routes>
+    <>
+      {!isHomePage && <Header />}
+      <Routes>
+        <Route path={PATH.HOME} element={<HomePage />} />
+        <Route path='/' element={<Navigate to={PATH.HOME} />} />
+        <Route
+          path='*'
+          element={
+            <div className={clsx('container', 'withHeader')}>
+              <Routes>
+                <Route path={PATH.RANDOM} element={<RandomImageGallery />} />
+                <Route path={PATH.BREEDS} element={<BreedsList />} />
+                <Route path={PATH.BREED_DETAILS} element={<BreedImageGallery />} />
+                <Route path={PATH.SUB_BREED} element={<SubBreedImageGallery />} />
+                <Route path={PATH.NOT_FOUND} element={<ErrorPage />} />
+                <Route path='*' element={<Navigate to={PATH.NOT_FOUND} />} />
+              </Routes>
+            </div>
+          }
+        />
+      </Routes>
+    </>
   )
 }
