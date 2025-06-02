@@ -1,5 +1,5 @@
 import { BREED_NAME_CORRECTIONS, BreedKey } from '@/common/constants'
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { createApi, fetchBaseQuery, FetchBaseQueryError } from '@reduxjs/toolkit/query/react'
 
 export interface BreedsResponse {
   message: Record<string, string[]>
@@ -9,6 +9,16 @@ export interface BreedsResponse {
 export interface BreedItem {
   name: string
   subBreeds: string[]
+}
+
+export type ErrorResponse = {
+  status: string
+  message: string
+  code: number
+}
+
+export type EnhancedApiError = FetchBaseQueryError & {
+  data?: ErrorResponse
 }
 
 export type GroupedBreeds = Record<string, BreedItem[]>
@@ -36,12 +46,12 @@ export const baseAPi = createApi({
         })),
     }),
     getImagesByBreed: builder.query<string[], string>({
-      query: (breed) => `breed/${breed}/images`,
-      transformResponse: (response: { message: string[] }) => response.message.slice(0, 10),
+      query: (breed) => `breed/${breed}/images/random/20`,
+      transformResponse: (response: { message: string[] }) => response.message,
     }),
     getImagesBySubBreed: builder.query<string[], { breedName: string; subBreedName: string }>({
-      query: ({ breedName, subBreedName }) => `breed/${breedName}/${subBreedName}/images`,
-      transformResponse: (response: { message: string[] }) => response.message.slice(0, 10),
+      query: ({ breedName, subBreedName }) => `breed/${breedName}/${subBreedName}/images/random/20`,
+      transformResponse: (response: { message: string[] }) => response.message,
     }),
   }),
 })
