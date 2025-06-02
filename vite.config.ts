@@ -5,6 +5,16 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  css: {
+    modules: {
+      localsConvention: 'camelCase',
+      generateScopedName: (name, filename, css) => {
+        const component = path.basename(filename, '.module.scss')
+        const hash = Buffer.from(css).toString('base64').substring(0, 5)
+        return `${component}__${name}__${hash}`
+      },
+    },
+  },
   plugins: [
     react(),
     VitePWA({
