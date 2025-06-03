@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import { createHash } from 'crypto'
 import react from '@vitejs/plugin-react-swc'
 import path from 'path'
 
@@ -10,7 +11,9 @@ export default defineConfig({
       localsConvention: 'camelCase',
       generateScopedName: (name, filename, css) => {
         const component = path.basename(filename, '.module.scss')
-        const hash = Buffer.from(css).toString('base64').substring(0, 5)
+        const classRegex = new RegExp(`\\.${name}[\\s\\{]+([^}]+)`)
+        const classContent = (css.match(classRegex) || [''])[0]
+        const hash = createHash('md5').update(`${name}_${classContent}`).digest('hex').substring(0, 5)
         return `${component}__${name}__${hash}`
       },
     },
