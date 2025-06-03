@@ -1,9 +1,10 @@
-.container {
+.appContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 1290px;
   width: 100%;
+  min-height: 100%;
   padding: 0 15px;
   margin: 0 auto;
   border: red solid 1px;
@@ -14,6 +15,5 @@
 }
 
 .withHeader {
-  min-height: calc(100vh - 65px);
   margin-top: 65px;
 }

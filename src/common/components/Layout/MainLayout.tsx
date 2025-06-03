@@ -11,7 +11,7 @@ export const MainLayout = () => {
   return (
     <>
       <Header />
-      <div className={clsx(!isErrorPage && 'container', 'withHeader')}>
+      <div className={clsx(!isErrorPage && 'appContainer', 'withHeader')}>
         <Outlet />
       </div>
     </>
