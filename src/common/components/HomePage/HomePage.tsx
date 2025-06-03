@@ -5,12 +5,12 @@ import { PATH } from '@/common/routes/AppRouter'
 
 export const HomePage = () => {
   return (
-    <section className={s.pageContainer} aria-labelledby='section-title section-description'>
-      <div className={s.pageInfo}>
-        <h1 className={s.pageTitle} id='section-title'>
+    <section className={s.container} aria-labelledby='section-title section-description'>
+      <div className={s.wrapper}>
+        <h1 className={s.title} id='section-title'>
           Dogs Gallery
         </h1>
-        <div className={`${s.textBlock} ${s.pageText}`} id='section-description'>
+        <div className={`${s.textBlock} ${s.text}`} id='section-description'>
           <span>Welcome to Dogs Gallery!</span>
           <span>Here you can see images of the dog breeds you're interested in!</span>
         </div>

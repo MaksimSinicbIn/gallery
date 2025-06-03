@@ -13,8 +13,21 @@ details {
   }
 }
 
-.subBreedsList {
-  display: flex; // Flex здесь!
+details[open] > summary {
+  color: var(--color-hovered-item);
+}
+
+details[open] li {
+  transition: $transition-duration ease;
+  color: var(--color-text);
+}
+
+details li:hover {
+  color: var(--color-hovered-item);
+}
+
+.subList {
+  display: flex;
   flex-direction: column;
   gap: 4px;
   padding: 4px 0 0 16px;

@@ -14,7 +14,7 @@ export const SubBreedList = ({ breed }: Props) => {
         <summary>
           <h3>{breed.name}</h3>
         </summary>
-        <ul className={s.subBreedsList}>
+        <ul className={s.subList}>
           {breed.subBreeds.map((subBreed) => (
             <li key={subBreed}>
               <h4>
