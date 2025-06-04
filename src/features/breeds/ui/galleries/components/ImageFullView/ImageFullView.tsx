@@ -10,7 +10,9 @@ type Props = {
 
 export const ImageFullView = ({ imageUrl, onClose }: Props) => {
   useEffect(() => {
-    document.body.style.overflow = 'hidden'
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
+    document.body.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
+    document.body.classList.add('scrollbarLock')
 
     const closeModalOnKeyDownHandler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -18,7 +20,8 @@ export const ImageFullView = ({ imageUrl, onClose }: Props) => {
     document.addEventListener('keydown', closeModalOnKeyDownHandler)
 
     return () => {
-      document.body.style.overflow = ''
+      document.body.classList.remove('scrollbarLock')
+      document.body.style.removeProperty('--scrollbar-width')
       document.removeEventListener('keydown', closeModalOnKeyDownHandler)
     }
   }, [onClose])
