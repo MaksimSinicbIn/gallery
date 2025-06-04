@@ -1,6 +1,6 @@
 @use '../../../styles/index.scss' as *;
 
-@mixin headerSide($position) {
+%headerPlaceholder {
   display: flex;
   align-items: center;
   top: 0;
@@ -22,6 +22,10 @@
     background-color: var(--color-header);
     border-color: var(--color-header-border);
   }
+}
+
+@mixin headerSide($position) {
+  @extend %headerPlaceholder;
 
   @if $position == 'right' {
     right: 0;
@@ -38,6 +42,10 @@
 
 .headerLeft {
   @include headerSide('left');
+}
+
+.header {
+  @extend %headerPlaceholder;
 }
 
 .headerScrolled {

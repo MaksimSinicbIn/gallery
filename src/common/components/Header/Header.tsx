@@ -1,11 +1,12 @@
+import { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/common/components/Toggle/ThemeToggle'
 import { Home, MoveLeft } from 'lucide-react'
-import clsx from 'clsx'
+import { PATH } from '@/common/routes/AppRouter'
 import { useAppNavigate } from '@/common/hooks'
 import { Button } from '../Button/Button'
 import { useLocation } from 'react-router'
-import { useState, useEffect } from 'react'
 import s from './Header.module.scss'
+import clsx from 'clsx'
 
 export const Header = () => {
   const { goHome, goBack } = useAppNavigate()
@@ -27,7 +28,7 @@ export const Header = () => {
   }, [hasScrolled])
 
   return (
-    <header className={s.headerSide}>
+    <header className={s.header}>
       <nav aria-label='Control'>
         <ul className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
           <li>
@@ -40,7 +41,7 @@ export const Header = () => {
           </li>
         </ul>
       </nav>
-      {location.pathname !== '/home' && (
+      {location.pathname !== PATH.HOME && location.pathname !== PATH.NOT_FOUND && (
         <nav aria-label='Back'>
           <ul className={clsx(s.headerLeft, hasScrolled && s.headerScrolled)}>
             <li>
