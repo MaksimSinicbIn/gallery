@@ -2,12 +2,14 @@
 
 [data-theme='light'] {
   --background: var(--color-light-400);
-  --color-text: var(--color-dark-700);
+  --color-text: var(--color-dark-800);
   --color-title: var(--color-dark-300);
   --color-hovered-item: var(--color-light-900);
   --color-header: var(--color-light-300);
   --color-header-border: var(--color-light-400);
   --color-block-1: var(--color-light-300);
+  --color-skeleton-base: var(--color-light-700);
+  --color-skeleton-highlight: var(--color-light-300);
   --color-accent: var(--color-accent-100);
 }
 
@@ -16,8 +18,10 @@
   --color-text: var(--color-light-100);
   --color-title: var(--color-light-700);
   --color-hovered-item: var(--color-light-900);
-  --color-header: var(--color-dark-550);
-  --color-header-border: var(--color-dark-550);
+  --color-header: var(--color-dark-600);
+  --color-header-border: var(--color-dark-600);
   --color-block-1: var(--color-dark-300);
+  --color-skeleton-base: var(--color-dark-200);
+  --color-skeleton-highlight: var(--color-dark-100);
   --color-accent: var(--color-accent-100);
 }
