@@ -2,13 +2,15 @@ import { GroupedBreeds, useGetBreedsListQuery } from '@/app/baseApi'
 import { Link } from 'react-router'
 import { SubBreedList } from '../SubBreedList/SubBreedList'
 import { normalizeBreedName } from '@/features/breeds/utils'
+import { BreedsListSkeleton } from './BreedsListSkeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 import s from './BreedsList.module.scss'
-import { LinearLoader } from '@/common/components/Loader/LinearLoader'
+// import { LinearLoader } from '@/common/components/Loader/LinearLoader'
 
 export const BreedsList = () => {
   const { data: breeds, isLoading, error } = useGetBreedsListQuery()
 
-  if (isLoading) return <LinearLoader />
+  //if (isLoading) return <LinearLoader />
   if (error) return <div>Ошибка загрузки пород</div>
 
   const groupedBreeds = (breeds || []).reduce<GroupedBreeds>((groups, breed) => {
@@ -22,6 +24,7 @@ export const BreedsList = () => {
 
   return (
     <section className={s.list}>
+      {isLoading && <BreedsListSkeleton />}
       {Object.entries(groupedBreeds).map(([letter, breeds]) => (
         <div className={s.group} key={letter}>
           <h2 className={s.groupTitle}>{letter}</h2>
