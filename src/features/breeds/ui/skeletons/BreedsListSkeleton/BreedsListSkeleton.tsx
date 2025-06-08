@@ -1,5 +1,5 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import s from './BreedsList.module.scss'
+import s from '../../lists/BreedsList/BreedsList.module.scss'
 
 export const BreedsListSkeleton = () => {
   const mockSkeletonData = {
