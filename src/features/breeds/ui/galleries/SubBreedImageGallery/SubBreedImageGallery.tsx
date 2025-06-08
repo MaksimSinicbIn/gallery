@@ -32,5 +32,5 @@ export const SubBreedImageGallery = () => {
   if (isLoading) return <LinearLoader />
   if (error) return <div>Error: {JSON.stringify(error)}</div>
 
-  return <Gallery images={images} />
+  return <Gallery isLoading={isLoading} images={images} />
 }

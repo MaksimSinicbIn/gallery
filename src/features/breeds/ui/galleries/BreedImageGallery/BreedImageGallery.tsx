@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router'
 import { Gallery } from '../components/Gallery/Gallery'
 import { useCacheDogImages } from '@/common/hooks'
 import { PATH } from '@/common/routes/AppRouter'
-import { LinearLoader } from '@/common/components/Loader/LinearLoader'
 
 export const BreedImageGallery = () => {
   const navigate = useNavigate()
@@ -23,8 +22,7 @@ export const BreedImageGallery = () => {
     }
   }
 
-  if (isLoading) return <LinearLoader />
   if (error) return <div>Error: {JSON.stringify(error)}</div>
 
-  return <Gallery images={images} />
+  return <Gallery isLoading={isLoading} images={images} />
 }
