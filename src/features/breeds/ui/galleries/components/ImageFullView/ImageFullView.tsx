@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import s from './ImageFullView.module.scss'
 import { Button } from '@/common/components/Button/Button'
 import { X } from 'lucide-react'
+import { createPortal } from 'react-dom'
 
 type Props = {
   imageUrl: string
@@ -9,6 +10,8 @@ type Props = {
 }
 
 export const ImageFullView = ({ imageUrl, onClose }: Props) => {
+  const portal = document.getElementById('portal')
+
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     document.body.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
@@ -26,12 +29,15 @@ export const ImageFullView = ({ imageUrl, onClose }: Props) => {
     }
   }, [onClose])
 
-  return (
+  if (!portal) return null
+
+  return createPortal(
     <div className={s.fullViewOverlay} onClick={onClose}>
       <Button className={s.overlayButton} variant='icon'>
         <X />
       </Button>
       <img className={s.fullSizeImage} src={imageUrl} alt='Full size image' onClick={(e) => e.stopPropagation()} />
-    </div>
+    </div>,
+    portal
   )
 }
