@@ -4,6 +4,7 @@ import { Gallery } from '../components/Gallery/Gallery'
 import { useCacheDogImages } from '@/common/hooks'
 import { PATH } from '@/common/routes/AppRouter'
 import { LinearLoader } from '@/common/components/Loader/LinearLoader'
+import { useEffect } from 'react'
 
 export const SubBreedImageGallery = () => {
   const navigate = useNavigate()
@@ -22,12 +23,14 @@ export const SubBreedImageGallery = () => {
 
   useCacheDogImages(images)
 
-  if (error) {
-    const apiError = error as EnhancedApiError
-    if (apiError.data?.code === 404) {
-      navigate(PATH.NOT_FOUND)
+  useEffect(() => {
+    if (error) {
+      const apiError = error as EnhancedApiError
+      if (apiError.data?.code === 404) {
+        navigate(PATH.NOT_FOUND)
+      }
     }
-  }
+  }, [error, navigate])
 
   if (isLoading) return <LinearLoader />
   if (error) return <div>Error: {JSON.stringify(error)}</div>
