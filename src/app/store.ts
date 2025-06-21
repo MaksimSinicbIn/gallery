@@ -1,16 +1,8 @@
-import { configureStore, isRejectedWithValue, Middleware, MiddlewareAPI } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { baseAPi, ErrorResponse } from './baseApi'
-import { appReducer, appSlice, setError } from './appSlice'
-
-const errorMiddleware: Middleware = (api: MiddlewareAPI) => (next) => (action) => {
-  if (isRejectedWithValue(action)) {
-    const payload = action.payload as { data?: ErrorResponse }
-    const errorMessage = payload.data?.message || 'Unknown error'
-    api.dispatch(setError(errorMessage))
-  }
-  return next(action)
-}
+import { baseAPi } from './baseApi'
+import { appReducer, appSlice } from './appSlice'
+import { errorMiddleware } from './middleware/errorMiddleware'
 
 export const store = configureStore({
   reducer: {
