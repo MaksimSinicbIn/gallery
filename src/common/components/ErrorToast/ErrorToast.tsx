@@ -14,5 +14,6 @@ export const ErrorToast = () => {
       dispatch(setError(null))
     }
   }, [errorMessage])
-  return <ToastContainer position='top-center' theme='dark' autoClose={5000} />
+
+  return <ToastContainer position='bottom-left' theme='dark' autoClose={5000} />
 }
