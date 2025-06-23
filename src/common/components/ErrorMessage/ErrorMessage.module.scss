@@ -1,0 +1,35 @@
+@use '../../../styles/index.scss' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  block-size: 100%;
+  padding-block: 48px;
+  gap: 12px;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.textMain {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  font-size: $font-size-l;
+  font-weight: $font-weight-semibold;
+}
+
+.textSecondary {
+  @extend .textMain;
+  font-size: $font-size-m;
+}
