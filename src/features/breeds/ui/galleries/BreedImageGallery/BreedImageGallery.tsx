@@ -1,9 +1,10 @@
-import { EnhancedApiError, useGetImagesByBreedQuery } from '@/app/baseApi'
+import { useEffect } from 'react'
+import { useGetImagesByBreedQuery } from '@/app/baseApi'
 import { useNavigate, useParams } from 'react-router'
 import { Gallery } from '../components/Gallery/Gallery'
-import { useCacheDogImages } from '@/common/hooks'
+import { useApiError, useCacheDogImages } from '@/common/hooks'
+import { ErrorMessage } from '@/common/components/ErrorMessage/ErrorMessage'
 import { PATH } from '@/common/routes/AppRouter'
-import { useEffect } from 'react'
 
 export const BreedImageGallery = () => {
   const navigate = useNavigate()
@@ -12,20 +13,31 @@ export const BreedImageGallery = () => {
 
   const breed = params.breed
 
-  const { data: images = [], isLoading, error } = useGetImagesByBreedQuery(breed || '', { skip: !breed })
+  const {
+    data: images = [],
+    refetch,
+    error,
+    isError,
+    isLoading,
+  } = useGetImagesByBreedQuery(breed || '', { skip: !breed })
 
   useCacheDogImages(images)
 
+  const apiError = useApiError(error)
+
   useEffect(() => {
-    if (error) {
-      const apiError = error as EnhancedApiError
-      if (apiError.data?.code === 404) {
+    if (isError) {
+      if (apiError?.data?.code === 404) {
         navigate(PATH.NOT_FOUND)
       }
     }
-  }, [error, navigate])
+  }, [apiError, isError, navigate])
 
-  if (error) return <div>Error: {JSON.stringify(error)}</div>
+  if (isError) {
+    if (apiError?.status === 'FETCH_ERROR' || apiError?.status === 'TIMEOUT_ERROR') {
+      return <ErrorMessage onRetry={refetch} />
+    }
+  }
 
   return <Gallery isLoading={isLoading} images={images} />
 }

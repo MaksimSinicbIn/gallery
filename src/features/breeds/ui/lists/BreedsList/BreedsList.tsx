@@ -3,13 +3,21 @@ import { Link } from 'react-router'
 import { SubBreedList } from '../SubBreedList/SubBreedList'
 import { normalizeBreedName } from '@/features/breeds/utils'
 import { BreedsListSkeleton } from '../../skeletons/BreedsListSkeleton/BreedsListSkeleton'
+import { ErrorMessage } from '@/common/components/ErrorMessage/ErrorMessage'
+import { useApiError } from '@/common/hooks'
 import 'react-loading-skeleton/dist/skeleton.css'
 import s from './BreedsList.module.scss'
 
 export const BreedsList = () => {
-  const { data: breeds, isLoading, error } = useGetBreedsListQuery()
+  const { data: breeds, refetch, error, isError, isLoading } = useGetBreedsListQuery()
 
-  if (error) return <div>Ошибка загрузки пород</div>
+  const apiError = useApiError(error)
+
+  if (isError) {
+    if (apiError?.status === 'FETCH_ERROR' || apiError?.status === 'TIMEOUT_ERROR') {
+      return <ErrorMessage onRetry={refetch} />
+    }
+  }
 
   const groupedBreeds = (breeds || []).reduce<GroupedBreeds>((groups, breed) => {
     const firstLetter = breed.name[0]
