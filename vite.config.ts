@@ -21,9 +21,13 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      injectRegister: null,
+      injectRegister: 'script-defer',
       registerType: 'autoUpdate',
+      strategies: 'generateSW',
       workbox: {
+        cleanupOutdatedCaches: true,
+        clientsClaim: true,
+        skipWaiting: true,
         runtimeCaching: [
           {
             urlPattern: /https:\/\/dog\.ceo\/api\/.*/,
