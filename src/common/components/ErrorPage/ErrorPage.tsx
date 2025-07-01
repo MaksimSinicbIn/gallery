@@ -7,13 +7,13 @@ export const ErrorPage = () => {
   const { goHome } = useAppNavigate()
 
   return (
-    <div aria-labelledby='error-title error-description' className={s.container}>
+    <div className={s.container}>
       <div className={s.wrapper}>
-        <div className={s.textBlock}>
-          <h2 id='section-error' className={s.title}>
+        <div className={s.textBlock} role='alert' aria-live='assertive'>
+          <h2 id='error-title' className={s.title}>
             Oops!
           </h2>
-          <p id='section-error' className={s.text}>
+          <p id='error-description' className={s.text}>
             You got the wrong door, buddy!
           </p>
         </div>

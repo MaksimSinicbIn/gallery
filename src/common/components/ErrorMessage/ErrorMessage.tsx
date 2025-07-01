@@ -8,14 +8,18 @@ type Props = {
 
 export const ErrorMessage = ({ onRetry }: Props) => {
   return (
-    <div className={s.container}>
+    <div className={s.container} role='alert' aria-live='assertive'>
       <div className={s.wrapper}>
         <img className={s.image} src={ERROR_MESSAGE_IMAGE} alt='Something wrong' />
         <div className={s.textBlock}>
-          <p className={s.textMain}>Something went wrong</p>
-          <p className={s.textSecondary}>Please refresh the page</p>
+          <p className={s.textMain} id='error-main'>
+            Something went wrong
+          </p>
+          <p className={s.textSecondary} id='error-details'>
+            Please refresh the page
+          </p>
         </div>
-        <Button variant='secondary' onClick={onRetry}>
+        <Button variant='secondary' aria-describedby='error-details' onClick={onRetry}>
           Refresh
         </Button>
       </div>

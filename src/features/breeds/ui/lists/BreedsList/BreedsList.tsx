@@ -29,17 +29,21 @@ export const BreedsList = () => {
   }, {})
 
   return (
-    <section className={s.list}>
+    <section className={s.list} aria-label='Breeds list'>
       {isLoading && <BreedsListSkeleton />}
       {Object.entries(groupedBreeds).map(([letter, breeds]) => (
-        <div className={s.group} key={letter}>
-          <h2 className={s.groupTitle}>{letter}</h2>
-          <ul className={s.groupList}>
+        <div className={s.group} key={letter} aria-labelledby={`group-${letter}`}>
+          <h2 className={s.groupTitle} id={`group-${letter}`}>
+            {letter}
+          </h2>
+          <ul className={s.groupList} aria-label={`Breeds starting with ${letter}`}>
             {breeds.map((breed) => (
               <li className={s.groupItem} key={breed.name}>
                 {breed.subBreeds.length === 0 ? (
                   <h3>
-                    <Link to={`/breeds/${normalizeBreedName(breed.name)}`}>{breed.name}</Link>
+                    <Link to={`/breeds/${normalizeBreedName(breed.name)}`} aria-label={`View ${breed.name} images `}>
+                      {breed.name}
+                    </Link>
                   </h3>
                 ) : (
                   <SubBreedList breed={breed} />

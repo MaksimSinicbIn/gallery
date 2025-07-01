@@ -9,7 +9,7 @@ type Props = {
 
 export const SubBreedList = ({ breed }: Props) => {
   return (
-    <section>
+    <div aria-label={`Sub-breeds of ${breed.name}`}>
       <details>
         <summary>
           <h3>{breed.name}</h3>
@@ -18,12 +18,17 @@ export const SubBreedList = ({ breed }: Props) => {
           {breed.subBreeds.map((subBreed) => (
             <li key={subBreed}>
               <h4>
-                <Link to={`/breeds/${normalizeBreedName(breed.name)}/${normalizeBreedName(subBreed)}`}>{subBreed}</Link>
+                <Link
+                  to={`/breeds/${normalizeBreedName(breed.name)}/${normalizeBreedName(subBreed)}`}
+                  aria-label={`View ${subBreed} images (sub-breed of ${breed.name})`}
+                >
+                  {subBreed}
+                </Link>
               </h4>
             </li>
           ))}
         </ul>
       </details>
-    </section>
+    </div>
   )
 }

@@ -5,15 +5,17 @@ import { PATH } from '@/common/routes/AppRouter'
 
 export const HomePage = () => {
   return (
-    <section className={s.container} aria-labelledby='section-title section-description'>
+    <section className={s.container} aria-labelledby='section-title' aria-describedby='section-description'>
       <div className={s.wrapper}>
-        <h1 className={s.title} id='section-title'>
-          Dogs Gallery
-        </h1>
-        <div className={`${s.textBlock} ${s.text}`} id='section-description'>
-          <p>Find your breed</p>
-          <p>Browse curated collection</p>
-          <p>Discover exceptional dogs worldwide</p>
+        <div className={s.textBlock} tabIndex={0}>
+          <h1 className={s.title} id='section-title'>
+            Dogs Gallery
+          </h1>
+          <div className={`${s.textBlock} ${s.text}`} id='section-description'>
+            <p>Find your breed</p>
+            <p>Browse curated collection</p>
+            <p>Discover exceptional dogs worldwide</p>
+          </div>
         </div>
         <div className={s.buttonSpace}>
           <Link to={PATH.RANDOM}>

@@ -29,24 +29,24 @@ export const Header = () => {
 
   return (
     <header className={s.header}>
-      <nav aria-label='Control'>
-        <ul className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
+      <nav>
+        <ul aria-label='Main controls' className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
           <li>
-            <ThemeToggle />
+            <ThemeToggle aria-label='Switch theme' />
           </li>
           <li>
             <Button aria-label='Home' title='Home' variant='icon'>
-              <Home onClick={goHome} />
+              <Home aria-hidden='true' onClick={goHome} />
             </Button>
           </li>
         </ul>
       </nav>
       {location.pathname !== PATH.HOME && location.pathname !== PATH.NOT_FOUND && (
-        <nav aria-label='Back'>
-          <ul className={clsx(s.headerLeft, hasScrolled && s.headerScrolled)}>
+        <nav>
+          <ul aria-label='Navigation' className={clsx(s.headerLeft, hasScrolled && s.headerScrolled)}>
             <li>
-              <Button aria-label='Back' title='Previous page' variant='icon' onClick={goBack}>
-                <MoveLeft />
+              <Button aria-label='Return to previous page' title='Previous page' variant='icon' onClick={goBack}>
+                <MoveLeft aria-hidden='true' />
               </Button>
             </li>
           </ul>

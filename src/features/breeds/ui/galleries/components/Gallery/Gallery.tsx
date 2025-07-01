@@ -18,7 +18,7 @@ export const Gallery = ({ images, isLoading }: Props) => {
   }
 
   return (
-    <section>
+    <section aria-label='Gallery'>
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className={s.myMasonryGrid}
