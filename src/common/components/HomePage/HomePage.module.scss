@@ -19,13 +19,14 @@
       hsla(0, 0%, 8%, 0.75) 90%,
       hsla(0, 0%, 0%, 0.85) 100%
     ),
-    url('../../../assets/images/homePageImageMain.avif') no-repeat center/cover;
+    url('../../../assets/images/homePageImage.avif') no-repeat center/cover;
 }
 
 .wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: start;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
   max-width: 1290px;
   width: 100%;
   min-height: 100%;
@@ -35,11 +36,19 @@
   margin-top: 30vh;
 }
 
-.textBlock {
+.textBlockPrimary {
   display: flex;
   flex-direction: column;
   align-items: start;
   gap: 12px;
+}
+
+.textBlockSecondary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  width: calc(1290px / 2 - 20px);
 }
 
 .text {
@@ -56,6 +65,7 @@
 
 .buttonSpace {
   display: flex;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 40px;
   gap: 20px;
 }
