@@ -4,18 +4,26 @@ import { ImageCardSkeleton } from '../../../skeletons/ImageCardSkeleton/ImageCar
 import 'react-loading-skeleton/dist/skeleton.css'
 import s from './Gallery.module.scss'
 
+type BreakpointColumns = {
+  default: number
+  [key: number]: number
+}
+
 type Props = {
   images: string[]
   isLoading: boolean
 }
 
 export const Gallery = ({ images, isLoading }: Props) => {
-  const breakpointColumnsObj = {
-    default: 4, // 4 колонки по умолчанию
-    1100: 3, // 3 колонки при ширине ≤1100px
-    700: 2, // 2 колонки при ширине ≤700px
-    500: 1, // 1 колонка на мобильных
-  }
+  const breakpointColumnsObj: BreakpointColumns =
+    images?.length === 1
+      ? { default: 1 }
+      : {
+          default: 4,
+          1200: 3,
+          768: 2,
+          576: 1,
+        }
 
   return (
     <section aria-label='Gallery'>
