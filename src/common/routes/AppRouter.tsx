@@ -19,9 +19,9 @@ export const PATH = {
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route path={PATH.HOME} element={<HomePage />} />
-      <Route path='/' element={<Navigate to={PATH.HOME} />} />
       <Route element={<MainLayout />}>
+        <Route path={PATH.HOME} element={<HomePage />} />
+        <Route path='/' element={<Navigate to={PATH.HOME} />} />
         <Route path={PATH.RANDOM} element={<RandomImageGallery />} />
         <Route path={PATH.BREEDS} element={<BreedsList />} />
         <Route path={PATH.BREED_DETAILS} element={<BreedImageGallery />} />
