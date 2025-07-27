@@ -1,71 +1,100 @@
-@use '../../../styles/index.scss' as *;
+@use '../../../styles/abstracts/tokens' as *;
+@use '../../../styles/abstracts/fonts' as *;
 
-.container {
+.gridContainer {
+  display: grid;
+  gap: 30px;
+
+  grid-auto-rows: minmax(400px, auto);
+
+  @media (min-width: ($breakpoint-mobile + 1px)) {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    grid-auto-rows: minmax(500px, 1fr);
+  }
+
+  @media (min-width: ($breakpoint-tablet + 1px)) {
+    grid-template-columns: repeat(2, minmax(300px, 450px));
+    grid-auto-rows: minmax(600px, 1fr);
+    justify-content: center;
+  }
+}
+
+.gridItem {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.textBlock {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
-  min-height: 100vh;
-  background:
-    linear-gradient(
-      180deg,
-      hsla(0, 0%, 35.29%, 0) 0%,
-      hsla(0, 0%, 34.53%, 0.034375) 16.36%,
-      hsla(0, 0%, 32.42%, 0.125) 33.34%,
-      hsla(0, 0%, 29.18%, 0.253125) 50.1%,
-      hsla(0, 0%, 25%, 0.4) 55%,
-      hsla(0, 0%, 18%, 0.6) 70%,
-      hsla(0, 0%, 15%, 0.65) 75%,
-      hsla(0, 0%, 8%, 0.75) 90%,
-      hsla(0, 0%, 0%, 0.85) 100%
-    ),
-    url('../../../assets/images/homePageImage.avif') no-repeat center/cover;
+  box-sizing: border-box;
+
+  padding: 5px;
+
+  @media (min-width: $breakpoint-tablet) {
+    padding: 40px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    padding: 40px 60px;
+  }
 }
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  max-width: 1290px;
-  width: 100%;
-  min-height: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
+.descriptionBlock {
+  @extend .textBlock;
   gap: 20px;
-  margin-top: 30vh;
-}
-
-.textBlockPrimary {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  gap: 12px;
-}
-
-.textBlockSecondary {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  width: calc(1290px / 2 - 20px);
+  padding: 0;
 }
 
 .text {
-  color: var(--color-light-100);
+  color: var(--color-text);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  font-size: $font-size-xxl;
+  font-size: $font-size-xl;
   font-weight: $font-weight-medium;
 }
 
 .title {
   @extend .text;
   font-size: $font-size-xxxl;
+  margin-bottom: 30px;
 }
 
-.buttonSpace {
+.imageLink {
+  display: block;
+  position: relative;
+}
+
+.imageWrapper {
+  flex: 1;
+  min-height: 0;
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 40px;
-  gap: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--color-light-100);
+  opacity: 0;
+  transition: opacity $transition-duration ease;
+  font-size: $font-size-l;
+  font-weight: $font-weight-bold;
+}
+
+.imageWrapper:hover .imageOverlay {
+  opacity: 1;
 }
