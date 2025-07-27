@@ -1,4 +1,5 @@
-@use '../../../styles/index.scss' as *;
+@use '../../../styles/abstracts/fonts' as *;
+@use '../../../styles/abstracts/tokens' as *;
 
 .button {
   display: inline-flex;
@@ -46,6 +47,7 @@
 
 .secondary {
   padding: 6px 24px;
+  color: var(--color-light-100);
   background-color: var(--color-dark-300);
 
   &:active {
@@ -88,7 +90,7 @@
   padding: 10px;
 
   &:hover {
-    color: var(--color-dark-100);
+    color: var(--color-hovered-item);
   }
 }
 
