@@ -33,12 +33,8 @@ body.scrollbarLock {
   padding-right: var(--scrollbar-width);
 }
 
-section {
+main {
   padding-bottom: 100px;
-
-  &.Toastify {
-    padding-bottom: 0;
-  }
 }
 
 h1,

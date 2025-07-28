@@ -27,8 +27,8 @@ export const AppRouter = () => {
         <Route path={PATH.BREED_DETAILS} element={<BreedImageGallery />} />
         <Route path={PATH.SUB_BREED} element={<SubBreedImageGallery />} />
         <Route path={PATH.NOT_FOUND} element={<ErrorPage />} />
+        <Route path='*' element={<Navigate to={PATH.NOT_FOUND} />} />
       </Route>
-      <Route path='*' element={<Navigate to={PATH.NOT_FOUND} />} />
     </Routes>
   )
 }
