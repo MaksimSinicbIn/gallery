@@ -14,8 +14,10 @@
 
 .group {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
-  width: 150px;
+  align-content: center;
+  width: 220px;
 }
 
 .groupTitle {
@@ -44,6 +46,7 @@
   flex-direction: column;
   gap: 4px;
   padding: 15px 0;
+  width: 75%;
 }
 
 .groupItem {
