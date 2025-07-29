@@ -2,6 +2,7 @@
 
 [data-theme='light'] {
   --background: var(--color-light-400);
+  --image-shadow: var(--shadow-light);
   --color-text: var(--color-dark-800);
   --color-title: var(--color-dark-300);
   --color-hovered-item: var(--color-light-900);
@@ -15,6 +16,7 @@
 
 [data-theme='dark'] {
   --background: var(--color-dark-500);
+  --image-shadow: var(--shadow-dark);
   --color-text: var(--color-light-100);
   --color-title: var(--color-light-700);
   --color-hovered-item: var(--color-light-900);
