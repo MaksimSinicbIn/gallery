@@ -21,16 +21,16 @@ export const HomePage = () => {
         </div>
       </div>
       <Link to={PATH.RANDOM} className={s.imageLink}>
-        <a className={s.imageWrapper}>
+        <div className={s.imageWrapper}>
           <img className={s.image} src={homePageImage2} alt='Dogs image for random' />
           <span className={s.imageOverlay}>Random Breed</span>
-        </a>
+        </div>
       </Link>
-      <Link to={PATH.BREEDS} className={s.imageLink}>
-        <a className={s.imageWrapper}>
+      <Link to={PATH.BREEDS} className={s.imageLink} aria-label='Choose a dog breed'>
+        <div className={s.imageWrapper}>
           <img className={s.image} src={homePageImage3} alt='Dogs image for chose breed' />
           <span className={s.imageOverlay}>Chose Breed</span>
-        </a>
+        </div>
       </Link>
     </section>
   )
