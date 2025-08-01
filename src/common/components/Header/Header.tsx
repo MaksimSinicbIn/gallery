@@ -28,7 +28,7 @@ export const Header = () => {
   }, [hasScrolled])
 
   return (
-    <header className={s.header}>
+    <header>
       <nav>
         <ul aria-label='Main controls' className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
           <li>

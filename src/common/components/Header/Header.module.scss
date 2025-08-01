@@ -1,6 +1,6 @@
 @use '../../../styles/abstracts/tokens' as *;
 
-%headerPlaceholder {
+.headerPlaceholder {
   display: flex;
   align-items: center;
   top: 0;
@@ -24,28 +24,16 @@
   }
 }
 
-@mixin headerSide($position) {
-  @extend %headerPlaceholder;
-
-  @if $position == 'right' {
-    right: 0;
-    border-bottom-left-radius: 0.5rem;
-  } @else {
-    left: 0;
-    border-bottom-right-radius: 0.5rem;
-  }
-}
-
 .headerRight {
-  @include headerSide('right');
+  @extend .headerPlaceholder;
+  right: 0;
+  border-bottom-left-radius: 0.5rem;
 }
 
 .headerLeft {
-  @include headerSide('left');
-}
-
-.header {
-  @extend %headerPlaceholder;
+  @extend .headerPlaceholder;
+  left: 0;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .headerScrolled {
