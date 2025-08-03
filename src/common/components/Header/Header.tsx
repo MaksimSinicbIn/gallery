@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { ThemeToggle } from '@/common/components/Toggle/ThemeToggle'
 import { Home, MoveLeft } from 'lucide-react'
 import { PATH } from '@/common/routes/AppRouter'
@@ -8,12 +8,22 @@ import { useLocation } from 'react-router'
 import s from './Header.module.scss'
 import clsx from 'clsx'
 
+interface ModalEventDetail {
+  isFullSize: boolean
+}
+
+interface ModalToggleEvent extends CustomEvent {
+  detail: ModalEventDetail
+}
+
 export const Header = () => {
   const { goHome, goBack } = useAppNavigate()
 
   const location = useLocation()
 
   const [hasScrolled, setHasScrolled] = useState(false)
+
+  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +33,23 @@ export const Header = () => {
       }
     }
 
+    const handleModalChange = (e: ModalToggleEvent) => {
+      if (headerRef.current) {
+        headerRef.current?.classList.toggle(s.headerPlaceholderHidden, e.detail.isFullSize)
+      }
+    }
+
+    window.addEventListener('modalStateChange', handleModalChange as EventListener)
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('modalStateChange', handleModalChange as EventListener)
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [hasScrolled])
 
   return (
-    <header>
+    <header ref={headerRef}>
       <nav>
         <ul aria-label='Main controls' className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
           <li>

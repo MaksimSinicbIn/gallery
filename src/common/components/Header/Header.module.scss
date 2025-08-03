@@ -12,20 +12,22 @@
   background: transparent;
   transition: all $transition-duration;
 
-  ul {
-    display: flex;
-    gap: 3px;
-    justify-content: center;
-  }
-
   &:hover {
     background-color: var(--color-header);
     border-color: var(--color-header-border);
   }
 }
 
+.headerPlaceholderHidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .headerRight {
   @extend .headerPlaceholder;
+  display: flex;
+  justify-content: center;
+  gap: 3px;
   right: 0;
   border-bottom-left-radius: 0.5rem;
 }

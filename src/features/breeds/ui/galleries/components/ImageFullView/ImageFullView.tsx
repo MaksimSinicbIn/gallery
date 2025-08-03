@@ -6,16 +6,22 @@ import { createPortal } from 'react-dom'
 
 type Props = {
   imageUrl: string
+  isFullSize: boolean
   onClose: () => void
 }
 
-export const ImageFullView = ({ imageUrl, onClose }: Props) => {
+export const ImageFullView = ({ imageUrl, isFullSize, onClose }: Props) => {
   const portal = document.getElementById('portal')
 
   useEffect(() => {
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     document.body.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
     document.body.classList.add('scrollbarLock')
+
+    const event = new CustomEvent('modalStateChange', {
+      detail: { isFullSize: true },
+    })
+    window.dispatchEvent(event)
 
     const closeModalOnKeyDownHandler = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -25,9 +31,10 @@ export const ImageFullView = ({ imageUrl, onClose }: Props) => {
     return () => {
       document.body.classList.remove('scrollbarLock')
       document.body.style.removeProperty('--scrollbar-width')
+      window.dispatchEvent(new CustomEvent('modalStateChange', { detail: { isFullSize: false } }))
       document.removeEventListener('keydown', closeModalOnKeyDownHandler)
     }
-  }, [onClose])
+  }, [onClose, isFullSize])
 
   if (!portal) return null
 

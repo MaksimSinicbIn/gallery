@@ -18,7 +18,7 @@ export const ImageCard = ({ imageUrl }: Props) => {
       <div className={s.card} onClick={changeSizeHandler}>
         <img className={s.image} src={imageUrl} alt='Dog image' />
       </div>
-      {isFullSize && <ImageFullView imageUrl={imageUrl} onClose={() => setIsFullSize(false)} />}
+      {isFullSize && <ImageFullView imageUrl={imageUrl} isFullSize onClose={() => setIsFullSize(false)} />}
     </>
   )
 }
