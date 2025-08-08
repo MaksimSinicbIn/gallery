@@ -13,7 +13,7 @@
   }
 
   @media (min-width: ($breakpoint-tablet + 1px)) {
-    grid-template-columns: repeat(2, minmax(300px, 450px));
+    grid-template-columns: repeat(2, minmax(250px, 400px));
     grid-auto-rows: minmax(600px, 1fr);
     justify-content: center;
   }
