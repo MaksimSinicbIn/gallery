@@ -1,5 +1,6 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import s from '../../lists/BreedsList/BreedsList.module.scss'
+import '@/styles/base/_skeleton.scss'
 
 export const BreedsListSkeleton = () => {
   const mockSkeletonData = {
@@ -29,7 +30,7 @@ export const BreedsListSkeleton = () => {
       {Object.entries(mockSkeletonData).map(([letter, count]) => (
         <div className={s.group} key={`skeleton-${letter}`}>
           <h2 className={s.groupTitle}>
-            <Skeleton height={28} width={28} borderRadius={'2rem'} />
+            <Skeleton height={28} width={28} borderRadius={'2rem'} className='skeletonSafariFix' />
           </h2>
           <ul className={s.groupList}>
             {Array(count)
@@ -37,7 +38,7 @@ export const BreedsListSkeleton = () => {
               .map((_, index) => (
                 <li className={s.groupItem} key={`skeleton-${index}`}>
                   <h3>
-                    <Skeleton width={150} borderRadius={'0.5rem'} />
+                    <Skeleton width={150} borderRadius={'0.5rem'} className='skeletonSafariFix' />
                   </h3>
                 </li>
               ))}

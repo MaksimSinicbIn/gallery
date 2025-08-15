@@ -1,5 +1,6 @@
 import Skeleton from 'react-loading-skeleton'
 import s from '../../galleries/components/ImageCard/ImageCard.module.scss'
+import '@/styles/base/_skeleton.scss'
 
 export const ImageCardSkeleton = () => {
   const getRandomHeight = (min: number, max: number) => {
@@ -9,11 +10,12 @@ export const ImageCardSkeleton = () => {
   return (
     <div className={s.card}>
       <Skeleton
-        width={'302.5px'}
+        width={'100%'}
         height={`${getRandomHeight(170, 571)}px`}
         baseColor={'var(--color-skeleton-base)'}
         highlightColor={'var(--color-skeleton-highlight)'}
         borderRadius={`0.5rem`}
+        className='skeletonSafariFix'
       />
     </div>
   )
