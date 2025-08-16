@@ -98,3 +98,9 @@
 .imageWrapper:hover .imageOverlay {
   opacity: 1;
 }
+
+@media (max-width: $breakpoint-mobile) {
+  .imageWrapper .imageOverlay {
+    opacity: 1;
+  }
+}
