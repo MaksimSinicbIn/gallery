@@ -1,4 +1,5 @@
-import { GroupedBreeds, useGetBreedsListQuery } from '@/app/baseApi'
+import { useGetBreedsListQuery } from '@/app/baseApi'
+import { GroupedBreeds } from '@/common/types'
 import { Link } from 'react-router'
 import { SubBreedList } from '../SubBreedList/SubBreedList'
 import { normalizeBreedName } from '@/features/lists/lib/utils'

@@ -8,13 +8,11 @@ import { useLocation } from 'react-router'
 import s from './Header.module.scss'
 import clsx from 'clsx'
 
-interface ModalEventDetail {
+type ModalEventDetail = {
   isFullSize: boolean
 }
 
-interface ModalToggleEvent extends CustomEvent {
-  detail: ModalEventDetail
-}
+type ModalToggleEvent = CustomEvent<ModalEventDetail>
 
 export const Header = () => {
   const { goHome, goBack } = useAppNavigate()

@@ -1,5 +1,5 @@
 import { Middleware, MiddlewareAPI, isRejectedWithValue } from '@reduxjs/toolkit'
-import { EnhancedApiError } from '../baseApi'
+import { EnhancedApiError } from '@/common/types'
 import { setError } from '../appSlice'
 
 export const errorMiddleware: Middleware = (api: MiddlewareAPI) => (next) => (action) => {

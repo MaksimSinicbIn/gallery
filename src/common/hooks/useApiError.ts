@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { EnhancedApiError } from '@/app/baseApi'
+import { EnhancedApiError } from '../types'
 
 export const useApiError = (error: unknown) => {
   return useMemo(() => {

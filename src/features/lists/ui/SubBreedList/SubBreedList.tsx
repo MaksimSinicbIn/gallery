@@ -1,4 +1,4 @@
-import { BreedItem } from '@/app/baseApi'
+import { BreedItem } from '@/common/types'
 import s from './SubBreedList.module.scss'
 import { Link } from 'react-router'
 import { normalizeBreedName } from '@/features/lists/lib/utils'
