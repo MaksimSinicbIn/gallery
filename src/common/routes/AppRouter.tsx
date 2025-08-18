@@ -1,10 +1,10 @@
-import { BreedImageGallery } from '@/features/breeds/ui/galleries/BreedImageGallery/BreedImageGallery'
-import { RandomImageGallery } from '@/features/breeds/ui/galleries/RandomImages/RandomImageGallery'
-import { SubBreedImageGallery } from '@/features/breeds/ui/galleries/SubBreedImageGallery/SubBreedImageGallery'
-import { BreedsList } from '@/features/breeds/ui/lists/BreedsList/BreedsList'
-import { MainLayout } from '../components/Layout/MainLayout'
-import { ErrorPage } from '../components/ErrorPage/ErrorPage'
-import { HomePage } from '../components/HomePage/HomePage'
+import { BreedImageGallery } from '@/features/galleries/ui/BreedImageGallery/BreedImageGallery'
+import { RandomImageGallery } from '@/features/galleries/ui/RandomImages/RandomImageGallery'
+import { SubBreedImageGallery } from '@/features/galleries/ui/SubBreedImageGallery/SubBreedImageGallery'
+import { BreedsList } from '@/features/lists/ui/BreedsList/BreedsList'
+import { MainLayout } from '@/common/components/Layout/MainLayout'
+import { ErrorPage } from '@/common//components/ErrorPage/ErrorPage'
+import { HomePage } from '@/common//components/HomePage/HomePage'
 import { Routes, Route, Navigate } from 'react-router'
 
 export const PATH = {

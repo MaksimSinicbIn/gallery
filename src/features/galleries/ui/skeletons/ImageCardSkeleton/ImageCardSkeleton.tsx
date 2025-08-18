@@ -1,5 +1,5 @@
 import Skeleton from 'react-loading-skeleton'
-import s from '../../galleries/components/ImageCard/ImageCard.module.scss'
+import s from '../../components/ImageCard/ImageCard.module.scss'
 import '@/styles/base/_skeleton.scss'
 
 export const ImageCardSkeleton = () => {

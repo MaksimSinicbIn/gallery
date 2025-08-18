@@ -1,6 +1,6 @@
 import Masonry from 'react-masonry-css'
 import { ImageCard } from '../ImageCard/ImageCard'
-import { ImageCardSkeleton } from '../../../skeletons/ImageCardSkeleton/ImageCardSkeleton'
+import { ImageCardSkeleton } from '../../skeletons/ImageCardSkeleton/ImageCardSkeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import s from './Gallery.module.scss'
 

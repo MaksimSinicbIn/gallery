@@ -1,5 +1,5 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import s from '../../lists/BreedsList/BreedsList.module.scss'
+import s from '../../BreedsList/BreedsList.module.scss'
 import '@/styles/base/_skeleton.scss'
 
 export const BreedsListSkeleton = () => {
