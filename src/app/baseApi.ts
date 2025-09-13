@@ -8,10 +8,6 @@ export const baseAPi = createApi({
     baseUrl: 'https://dog.ceo/api/',
   }),
   endpoints: (builder) => ({
-    getRandomDogImage: builder.query<string, void>({
-      query: () => 'breeds/image/random',
-      transformResponse: (response: { message: string }) => response.message,
-    }),
     getMultipleDogImages: builder.query<string[], number>({
       query: (count) => `breeds/image/random/${count}`,
       transformResponse: (response: { message: string[] }) => response.message,
@@ -36,7 +32,6 @@ export const baseAPi = createApi({
 })
 
 export const {
-  useGetRandomDogImageQuery,
   useGetMultipleDogImagesQuery,
   useGetBreedsListQuery,
   useGetImagesByBreedQuery,
