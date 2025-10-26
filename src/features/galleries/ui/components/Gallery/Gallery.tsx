@@ -1,6 +1,9 @@
 import Masonry from 'react-masonry-css'
 import { ImageCard } from '../ImageCard/ImageCard'
 import { ImageCardSkeleton } from '../../skeletons/ImageCardSkeleton/ImageCardSkeleton'
+import { ImageFullView } from '@/features/modal/ImageFullView/ImageFullView'
+import { useAppSelector } from '@/common/hooks'
+import { selectModalStatus } from '@/features/modal/modalSlice'
 import 'react-loading-skeleton/dist/skeleton.css'
 import s from './Gallery.module.scss'
 
@@ -15,6 +18,8 @@ type Props = {
 }
 
 export const Gallery = ({ images, isLoading }: Props) => {
+  const isModalOpen = useAppSelector(selectModalStatus)
+
   const breakpointColumnsObj: BreakpointColumns =
     images?.length === 1
       ? { default: 1 }
@@ -38,6 +43,7 @@ export const Gallery = ({ images, isLoading }: Props) => {
             .map((_, index) => <ImageCardSkeleton key={`skeleton-${index}`} />)}
         {images?.map((imageUrl) => <ImageCard key={imageUrl} imageUrl={imageUrl} />)}
       </Masonry>
+      {isModalOpen && <ImageFullView />}
     </section>
   )
 }

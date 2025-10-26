@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { ImageFullView } from '../ImageFullView/ImageFullView'
+import { useAppDispatch } from '@/common/hooks'
+import { openModal } from '@/features/modal/modalSlice'
 import s from './ImageCard.module.scss'
 
 type Props = {
@@ -7,18 +7,17 @@ type Props = {
 }
 
 export const ImageCard = ({ imageUrl }: Props) => {
-  const [isFullSize, setIsFullSize] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
 
-  const changeSizeHandler = () => {
-    setIsFullSize(true)
+  const openModalHandler = () => {
+    dispatch(openModal({ imageUrl }))
   }
 
   return (
     <>
-      <div className={s.card} onClick={changeSizeHandler}>
+      <div className={s.card} onClick={openModalHandler}>
         <img className={s.image} src={imageUrl} alt='Dog image' />
       </div>
-      {isFullSize && <ImageFullView imageUrl={imageUrl} isFullSize onClose={() => setIsFullSize(false)} />}
     </>
   )
 }

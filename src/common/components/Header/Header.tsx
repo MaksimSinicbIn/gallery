@@ -1,27 +1,22 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/common/components/Toggle/ThemeToggle'
 import { Home, MoveLeft } from 'lucide-react'
 import { PATH } from '@/common/routes/AppRouter'
-import { useAppNavigate } from '@/common/hooks'
+import { useAppNavigate, useAppSelector } from '@/common/hooks'
+import { selectModalStatus } from '@/features/modal/modalSlice'
 import { Button } from '../Button/Button'
 import { useLocation } from 'react-router'
 import s from './Header.module.scss'
 import clsx from 'clsx'
 
-type ModalEventDetail = {
-  isFullSize: boolean
-}
-
-type ModalToggleEvent = CustomEvent<ModalEventDetail>
-
 export const Header = () => {
+  const isModalOpen = useAppSelector(selectModalStatus)
+
   const { goHome, goBack } = useAppNavigate()
 
   const location = useLocation()
 
   const [hasScrolled, setHasScrolled] = useState(false)
-
-  const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,23 +26,15 @@ export const Header = () => {
       }
     }
 
-    const handleModalChange = (e: ModalToggleEvent) => {
-      if (headerRef.current) {
-        headerRef.current?.classList.toggle(s.headerPlaceholderHidden, e.detail.isFullSize)
-      }
-    }
-
-    window.addEventListener('modalStateChange', handleModalChange as EventListener)
     window.addEventListener('scroll', handleScroll, { passive: true })
 
     return () => {
-      window.removeEventListener('modalStateChange', handleModalChange as EventListener)
       window.removeEventListener('scroll', handleScroll)
     }
   }, [hasScrolled])
 
   return (
-    <header ref={headerRef}>
+    <header className={clsx(isModalOpen && s.headerPlaceholderHidden)}>
       <nav>
         <ul aria-label='Main controls' className={clsx(s.headerRight, hasScrolled && s.headerScrolled)}>
           <li>
