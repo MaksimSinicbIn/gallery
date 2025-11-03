@@ -1,9 +1,9 @@
 import Masonry from 'react-masonry-css'
 import { ImageCard } from '../ImageCard/ImageCard'
 import { ImageCardSkeleton } from '../../skeletons/ImageCardSkeleton/ImageCardSkeleton'
-import { ImageFullView } from '@/features/modal/ImageFullView/ImageFullView'
+import { ImageFullView } from '@/features/modal/ui/ImageFullView/ImageFullView'
 import { useAppSelector } from '@/common/hooks'
-import { selectModalStatus } from '@/features/modal/modalSlice'
+import { selectModalStatus } from '@/features/modal/model/modalSlice'
 import 'react-loading-skeleton/dist/skeleton.css'
 import s from './Gallery.module.scss'
 

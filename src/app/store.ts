@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { baseAPi } from './baseApi'
 import { appReducer, appSlice } from './appSlice'
-import { modalReducer, modalSlice } from '@/features/modal/modalSlice'
+import { modalReducer, modalSlice } from '@/features/modal/model/modalSlice'
 import { errorMiddleware } from './middleware/errorMiddleware'
 
 export const store = configureStore({
