@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useGetImagesByBreedQuery } from '@/app/baseApi'
 import { useNavigate, useParams } from 'react-router'
-import { Gallery } from '../components/Gallery/Gallery'
 import { useApiError, useCacheDogImages } from '@/common/hooks'
-import { ErrorMessage } from '@/common/components/ErrorMessage/ErrorMessage'
-import { PATH } from '@/common/routes/AppRouter'
+import { ErrorMessage } from '@/common/components'
+import { Gallery } from '@/features/galleries'
+import { PATH } from '@/common/routes'
 
 export const BreedImageGallery = () => {
   const navigate = useNavigate()

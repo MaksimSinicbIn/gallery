@@ -1,7 +1,7 @@
 import wrongDoor from '@/assets/images/wrongDoor.webp'
 import s from './ErrorPage.module.scss'
 import { useAppNavigate } from '@/common/hooks'
-import { Button } from '../Button/Button'
+import { Button } from '@/common/components'
 
 export const ErrorPage = () => {
   const { goHome } = useAppNavigate()

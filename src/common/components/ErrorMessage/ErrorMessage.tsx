@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE_IMAGE } from '@/common/constants/errorMessageImage'
 import s from './ErrorMessage.module.scss'
-import { Button } from '../Button/Button'
+import { Button } from '@/common/components'
 
 type Props = {
   onRetry: () => void

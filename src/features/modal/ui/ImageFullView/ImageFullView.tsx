@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import { Button } from '@/common/components/Button/Button'
+import { Button } from '@/common/components'
 import { useAppDispatch, useAppSelector } from '@/common/hooks'
-import { closeModal, selectModalData } from '@/features/modal/model/modalSlice'
+import { closeModal, selectModalData } from '@/features/modal'
 import { X } from 'lucide-react'
 import s from './ImageFullView.module.scss'
 

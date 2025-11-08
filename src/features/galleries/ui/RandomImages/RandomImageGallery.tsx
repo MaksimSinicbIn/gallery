@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useGetMultipleDogImagesQuery } from '@/app/baseApi'
-import { Gallery } from '../components/Gallery/Gallery'
 import { useApiError, useCacheDogImages } from '@/common/hooks'
-import { PATH } from '@/common/routes/AppRouter'
+import { Gallery } from '@/features/galleries'
+import { ErrorMessage } from '@/common/components'
+import { PATH } from '@/common/routes'
 import { useNavigate } from 'react-router'
-import { ErrorMessage } from '@/common/components/ErrorMessage/ErrorMessage'
 
 export const RandomImageGallery = () => {
   const navigate = useNavigate()

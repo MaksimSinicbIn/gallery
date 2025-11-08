@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '@/common/hooks'
 import { selectThemeMode, toggleTheme } from '@/app/appSlice'
-import { Button } from '@/common/components/Button/Button'
+import { Button } from '@/common/components'
 import { Moon, Sun } from 'lucide-react'
 import s from './ThemeToggle.module.scss'
 

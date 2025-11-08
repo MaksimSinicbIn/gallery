@@ -1,6 +1,5 @@
-import { ErrorToast } from '@/common/components/ErrorToast/ErrorToast'
-import { Header } from '@/common/components/Header/Header'
-import { AppRouter } from '@/common/routes/AppRouter'
+import { ErrorToast, Header } from '@/common/components'
+import { AppRouter } from '@/common/routes'
 
 export const App = () => {
   return (

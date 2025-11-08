@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { useGetImagesBySubBreedQuery } from '@/app/baseApi'
-import { useNavigate, useParams } from 'react-router'
-import { Gallery } from '../components/Gallery/Gallery'
 import { useApiError, useCacheDogImages } from '@/common/hooks'
-import { ErrorMessage } from '@/common/components/ErrorMessage/ErrorMessage'
-import { PATH } from '@/common/routes/AppRouter'
+import { useNavigate, useParams } from 'react-router'
+import { Gallery } from '@/features/galleries'
+import { ErrorMessage } from '@/common/components'
+import { PATH } from '@/common/routes'
 
 export const SubBreedImageGallery = () => {
   const navigate = useNavigate()

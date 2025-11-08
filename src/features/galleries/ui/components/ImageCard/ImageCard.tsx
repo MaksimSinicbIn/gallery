@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/common/hooks'
-import { openModal } from '@/features/modal/model/modalSlice'
+import { openModal } from '@/features/modal'
 import s from './ImageCard.module.scss'
 
 type Props = {
