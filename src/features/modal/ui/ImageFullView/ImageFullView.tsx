@@ -18,8 +18,6 @@ export const ImageFullView = () => {
   }
 
   useEffect(() => {
-    if (!isOpen) return
-
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
     document.body.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
     document.body.classList.add('scrollbarLock')
@@ -29,14 +27,12 @@ export const ImageFullView = () => {
     }
     document.addEventListener('keydown', closeModalOnKeyDownHandler)
 
-    window.addEventListener('popstate', handleClose)
-
     return () => {
       document.body.classList.remove('scrollbarLock')
       document.body.style.removeProperty('--scrollbar-width')
       document.removeEventListener('keydown', closeModalOnKeyDownHandler)
     }
-  }, [isOpen])
+  }, [])
 
   if (!portal) return null
   if (!isOpen) return null
